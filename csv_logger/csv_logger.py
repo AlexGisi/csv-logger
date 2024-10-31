@@ -27,7 +27,7 @@ class CSVLoader:
 
 class LoggingModule:
     def __init__(self, path: str, keys: List[str]) -> None:
-        self.file = open(path, "w", newline="")
+        self.file = open(path, "w", newline="", buffering=1)
         self.keys = keys
 
         self.writer = csv.DictWriter(self.file, fieldnames=["time"] + keys)
